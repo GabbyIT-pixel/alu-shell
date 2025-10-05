@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+for file in *; do
+  # Only process regular files/directories (ignore hidden files)
+  # Remove everything up to and including the first dash
+  echo "${file#*-}"
+done
