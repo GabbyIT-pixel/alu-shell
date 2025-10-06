@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-# Displays lines containing the word "bash" to show bash processes
-# shellcheck disable=SC2009
-ps -ef | grep bash
+# Displays all running processes containing the word bash
+ps -eo user,args | grep bash | grep -v grep
