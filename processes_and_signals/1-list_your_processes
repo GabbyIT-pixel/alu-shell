@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# Displays the user of running bash processes
+# Displays only the user of running bash processes
 # shellcheck disable=SC2009
-ps -ef | grep bash | grep -v grep | awk '{print $1}'
+ps -eo user,comm | grep bash | grep -v grep | awk '{print $1}'
