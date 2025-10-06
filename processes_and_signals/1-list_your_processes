@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-# Displays only the user of running bash processes
-# shellcheck disable=SC2009
-ps -eo user=,comm= | grep bash | grep -v grep | awk '{print $1}'
+# Display all running processes in a user-oriented format showing hierarchy
+ps auxf
