@@ -1,17 +1,19 @@
 #!/usr/bin/env bash
 # Script that writes its PID and handles signals
-PIDFILE="/var/run/myscript.pid"
 
-# Write current PID to file
+PIDFILE="/var/run/myscript.pid"
 echo $$ > "$PIDFILE"
+
+# Flag to control loop
+running=true
 
 # Handle signals
 trap 'echo "Y U no love me?!"' SIGINT
 trap 'echo "I hate the kill command"' SIGTERM
-trap 'rm -f "$PIDFILE"; exit' SIGQUIT SIGTERM
+trap 'rm -f "$PIDFILE"; running=false; exit' SIGQUIT
 
 # Infinite loop
-while true; do
+while $running; do
     echo "To infinity and beyond"
     sleep 2
 done
