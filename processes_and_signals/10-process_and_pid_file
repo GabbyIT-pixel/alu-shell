@@ -10,7 +10,7 @@ running=true
 # Handle signals
 trap 'echo "Y U no love me?!"' SIGINT
 trap 'echo "I hate the kill command"' SIGTERM
-trap 'rm -f "$PIDFILE"; running=false; exit' SIGQUIT
+trap 'rm -f "$PIDFILE"; exit 1' SIGQUIT SIGTERM
 
 # Infinite loop
 while $running; do
