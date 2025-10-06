@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-# Displays all running processes containing the word bash
-ps -eo user,args | grep bash | grep -v grep
+# Displays the user and command of running processes containing the word bash
+ps -ef | grep bash | awk '{print $1, $9}'
